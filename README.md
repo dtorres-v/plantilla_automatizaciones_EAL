@@ -1,0 +1,70 @@
+
+# Appium Test Automation 
+## Template, Proyecto de Pruebas EAL
+
+Este archivo de Pycharm pretende hacer una plantilla sencilla para automatizar EAL usando el Appium Recorder y generar archivos de Test Case que se puedan correr por sí mismos.
+
+## Composición de este archivo:
+1. README
+2. requirements.txt
+    donde están la información de los packages que se deben de tener para correr correctamnete el archivo.
+3. conftest.py 
+    está en setup y el teardown que se encargarán de abrir y cerrar el driver
+4. plantilla.py
+    de donde vas a copiar la estructura del test.
+5. archivo que crearás para ahí pegar la platilla y generar tu test.
+
+
+## Antes de empezar
+Ejecutar el siguiente comando en la terminal de python:
+
+pip install -r requirements   
+
+## ¿Qué hacer con esta plantilla?
+
+1. Crear un archivo .py con el nombre del test case, i.e. VCO_TC001.
+2. Copiar y pegar toda la plantilla a este nuevo archivo.
+3. Crear las variables necesarias para "generalizar" el proceso i.e:
+    
+    user = "ejemplo"
+
+    password = "passejemplo"
+
+    article_id = "FA01001"
+
+    article_quantity = 1
+
+4. Comenzar la ejecución de la prueba de forma manual a través del "Appium recorder".
+
+5. Se sugiere ir copiando y pegando el código, dividiendolo código en pasos:
+    1. """Entrada a la aplicación."""
+    2. """Carga de la base."""
+    3. """Escoger ruta y cliente."""
+    4. """Inicio de visita."""
+    etc
+
+### Uso de esperas explícitas – HELPER: wait_for_element
+
+Algunos pasos (como la carga de la base) requieren esperas explícitas. Ejemplo:
+
+Código original del recorder:
+el7 = driver.find_element(by=AppiumBy.ANDROID_UIAUTOMATOR, value="new UiSelector().text(\"cargar\")")
+el7.click()
+
+Código modificado usando wait_for_element:
+el7 = self.wait_for_element(by=AppiumBy.ANDROID_UIAUTOMATOR, value="new UiSelector().text(\"cargar\")")
+el7.click()
+
+### Manejo de errores
+
+Agrega un bloque try/except en cada paso para generar errores controlados:
+
+try:
+    # acción del paso
+except Exception as e:
+    print(f"Error en el paso X: {e}")
+    assert False
+
+### Consejo final
+
+Ejecuta el test de forma frecuente durante su construcción para asegurarte de que todo funciona correctamente.
