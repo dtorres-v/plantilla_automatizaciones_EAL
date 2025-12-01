@@ -2,7 +2,13 @@
 # Appium Test Automation 
 ## Template, Proyecto de Pruebas EAL
 
-Este archivo de Pycharm pretende hacer una plantilla sencilla para automatizar EAL usando el Appium Recorder y generar archivos de Test Case que se puedan correr por sí mismos.
+Este archivo de Pycharm pretende ser una plantilla sencilla para automatizar EAL usando el Appium Recorder y generar archivos de Test Case que se puedan correr por sí mismos.
+
+## ¿Cómo manejar el repositorio?
+1. Clonar el repositorio a Pycharm
+2. Crear una branch con el nombre de la tester y el proyecto i.e. Dom_EAL
+3. Asegurarse de que todos los cambios sean hechos en la branch correspondiente.
+4. Al terminar de hacer el test case generar el commit y push.
 
 ## Composición de este archivo:
 1. README
@@ -55,7 +61,7 @@ Código modificado usando wait_for_element:
 el7 = self.wait_for_element(by=AppiumBy.ANDROID_UIAUTOMATOR, value="new UiSelector().text(\"cargar\")")
 el7.click()
 
-### Manejo de errores
+### Creación de tests
 
 Agrega un bloque try/except en cada paso para generar errores controlados:
 
@@ -65,6 +71,16 @@ except Exception as e:
     print(f"Error en el paso X: {e}")
     assert False
 
+### Para ejecutarlo
+Asegúrate de que ambos archivos estén en la misma carpeta.
+
 ### Consejo final
 
 Ejecuta el test de forma frecuente durante su construcción para asegurarte de que todo funciona correctamente.
+
+## Demo
+
+Insert gif or link to demo
+
+
+
